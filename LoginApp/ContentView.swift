@@ -115,7 +115,7 @@ struct bottomView : View {
                 }.foregroundColor(.blue)
             }.padding(.top, 25)
         }.sheet(isPresented: $show) {
-            SignUp(show: self.show)
+            SignUp(show: self.$show)
         }
     }
 }
@@ -125,7 +125,7 @@ struct SignUp : View {
     @State var pass = ""
     @State var alert = false
     @State var msg = ""
-    @State var show : Bool
+    @Binding var show : Bool
     var body : some View {
         VStack{
             Image("img")
@@ -174,7 +174,7 @@ struct SignUp : View {
                 .clipShape(Capsule())
                 .padding(.top , 45)
         }.padding()
-            .alert(isPresented: $show){
+            .alert(isPresented: $alert){
                 Alert(title: Text("Error"), message: Text(self.msg), dismissButton: .default(Text("Ok")))
         }
     }
@@ -185,7 +185,6 @@ struct GoogleSignView : UIViewRepresentable {
         let button = GIDSignInButton()
         button.colorScheme = .dark
         GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
-        
         return button
     }
     
