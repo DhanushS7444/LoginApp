@@ -99,7 +99,6 @@ struct bottomView : View {
     @State var show = false
     var body : some View{
         VStack{
-            
             Text("(or)")
                 .foregroundColor(Color.gray.opacity(0.5))
                 .padding(.top, 30)
@@ -163,7 +162,6 @@ struct SignUp : View {
                         self.show.toggle()
                         NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
                     }
-                    
                 }
             }){
                 Text("Sign Up")
@@ -191,8 +189,6 @@ struct GoogleSignView : UIViewRepresentable {
     func updateUIView(_ uiView: GoogleSignView.UIViewType, context: UIViewRepresentableContext<GoogleSignView>) {
         
     }
-    
-    
 }
 
 func signInWithEmail(email : String, password : String, completion : @escaping (Bool,String)-> Void){
