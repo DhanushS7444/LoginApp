@@ -75,7 +75,7 @@ struct Login : View {
                         self.msg = status
                         self.alert.toggle()
                     }else{
-                        UserDefaults.standard.set(true, forKey: "Status")
+                        UserDefaults.standard.set(true, forKey: "status")
                         NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
                     }
                 }
@@ -223,8 +223,8 @@ struct Home : View {
             Button(action : {
                 try! Auth.auth().signOut()
                 GIDSignIn.sharedInstance()?.signOut()
-                UserDefaults.standard.set(false, forKey: "Status")
-                NotificationCenter.default.post(name: Notification.Name("StatusChange"), object: nil)
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: Notification.Name("statusChange"), object: nil)
             }){
                 Text("Logout")
             }
