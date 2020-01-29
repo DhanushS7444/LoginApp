@@ -208,7 +208,6 @@ func signUpWithEmail(email : String, password : String, completion : @escaping (
             return
         }
         completion(true,(res?.user.email)!)
-        
     }
 }
 
